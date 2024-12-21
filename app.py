@@ -13,10 +13,10 @@ app = Flask(__name__, static_url_path='/static')
 
 # Initialize OpenAIEmbeddings
 embed_model = OpenAIEmbeddings(model="text-embedding-ada-002",
-                               openai_api_key="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")
+                               openai_api_key="api_key")
 
 # Initialize Pinecone
-pc = Pinecone(api_key="c8b8503f-7230-4bab-a4fa-57f638bfc7c6")
+pc = Pinecone(api_key="pinecone_api_key")
 index_name = 'testcone'
 
 existing_indexes = [index_info["name"] for index_info in pc.list_indexes()]
@@ -77,7 +77,7 @@ text_field = "text"
 vectorstore = PineconeVectorStore(index, embed_model, text_field)
 
 # Initialize ChatOpenAI
-chat = ChatOpenAI(openai_api_key="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", model='gpt-3.5-turbo')
+chat = ChatOpenAI(openai_api_key="openAi_apikey", model='gpt-3.5-turbo')
 
 conversation_history = []
 
